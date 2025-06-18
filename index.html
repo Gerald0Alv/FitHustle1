@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="p:domain_verify" content="1a5444ac020609bf2790e7218e68ce43"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitHustle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f7fafc;
+      color: #2d3748;
+      line-height: 1.6;
+    }
+    .img { width: 30%; }
+    img { width: 100%; }
+    header {
+      background: linear-gradient(120deg, #38a169, #2f855a);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .product:hover { transform: scale(1.01); }
+    .product h2 {
+      color: #2f855a;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .product ul {
+      margin: 1rem 0;
+      padding-left: 1.2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #38a169;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+    }
+    .btn:hover { background: #2f855a; }
+    .cta {
+      background: #edf2f7;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 3rem;
+    }
+    .cta h3 { margin-bottom: 1rem; }
+    input[type="email"] {
+      padding: 0.75rem;
+      width: 60%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+    .cta-btn {
+      background: #2f855a;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #2d3748;
+      color: white;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      input[type="email"] {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      .cta-btn {
+        width: 100%;
+      }
+      .img { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="img">
+        <img src="IMG/FitHustle.jpg" alt="">
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section class="product">
+      <h2>🔥 EchoXen - Your Hearing Loss Ally</h2>
+      <p>EchoXen is your go-to to rediscover the serenity of quiet moments.</p>
+      <ul>
+        <li>Boosts metabolism naturally</li>
+        <li>Reduces cravings</li>
+        <li>Supports long-term weight management</li>
+      </ul>
+      <a href="https://www.checkout-ds24.com/redir/578369/Gerald0123/" class="btn">Click Here to learn More</a>
+    </section>
+
+    <section class="product">
+      <h2>📘 The Encyclopedia of Power Foods</h2>
+      <p>This comprehensive eBook reveals the most powerful foods for health, energy, and longevity. Whether you're fighting fatigue or building a new lifestyle, this guide has your back.</p>
+      <ul>
+        <li>Detailed breakdown of 100+ superfoods</li>
+        <li>Meal ideas and daily plans</li>
+        <li>Instant digital download</li>
+      </ul>
+      <a href="https://wsl.365dailyhealth.com/landing-sale-page1713272576177#aff=Gerald0123" class="btn">Click Here to Learn More</a>
+    </section>
+
+    <section class="product">
+      <h2>⚡ Advanced Mitochondrial Formula</h2>
+      <p>This cutting-edge supplement targets your cells' powerhouses—mitochondria. Enhance your energy, focus, and cellular resilience with a science-backed blend of nutrients.</p>
+      <ul>
+        <li>Promotes clean, sustained energy</li>
+        <li>Supports cellular repair and longevity</li>
+        <li>Formulated by top health experts</li>
+      </ul>
+      <a href="https://www.advancedbionutritionals.com/DS24/Advanced-Mitochondrial/Too-Tired-To-Enjoy-It/HD.htm#aff=Gerald0123" class="btn">Click Here To Learn More</a>
+    </section>
+
+    <section class="cta">
+      <h3>Join Our Health Newsletter</h3>
+      <p>Get wellness tips, exclusive discounts, and more!</p>
+      <form action="/subscribe" method="POST">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit" class="cta-btn">Subscribe</button>
+      </form>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; FitHustle.</p>
+  </footer>
+
+  <script>
+    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const emailInput = document.querySelector('input[type="email"]');
+      const email = emailInput.value;
+
+      fetch("/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("Thank you for subscribing!");
+        emailInput.value = "";
+      })
+      .catch(err => {
+        console.error("Error:", err);
+        alert("There was an error. Please try again.");
+      });
+    });
+  </script>
+
+</body>
+</html>
